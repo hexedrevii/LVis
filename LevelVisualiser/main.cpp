@@ -21,6 +21,14 @@ int main(int argc, char** argv)
 
 	CLI11_PARSE(app, argc, argv);
  
+	if (levels <= 0 && level <= 0)
+	{
+		std::cerr << "Could not show: No level or levels specified." << std::endl;
+		std::cerr << "Run with --help for more information." << std::endl;
+
+		return 1;
+	}
+
 	if (level > 0)
 	{
 		int xp = (int)std::floor(std::pow((level / increase), gap));
@@ -29,6 +37,15 @@ int main(int argc, char** argv)
 		if (levels != 0)
 		{
 			std::cout << std::endl;
+		}
+	}
+
+	if (levels > 0)
+	{
+		for (int i = 1; i <= levels; i++)
+		{
+			int xp = (int)std::floor(std::pow((i / increase), gap));
+			std::cout << "level " << i << ": " << xp << " XP" << std::endl;
 		}
 	}
 }
