@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.15)
+project(LVis LANGUAGES CXX)
+
+add_executable(${PROJECT_NAME}
+  LevelVisualiser/main.cpp
+)
+
+target_include_directories(${PROJECT_NAME} PRIVATE
+  LevelVisualiser/External/CLI11
+)
